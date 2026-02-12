@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sven’s Website</title>
+  <link rel="stylesheet" href="index.css" />
+</head>
+
+<body>
+  <header class="header">
+    <h1 class="logo">Sven’s Website</h1>
+
+    <nav class="nav" aria-label="Hauptnavigation">
+      <a class="nav-link" href="./about_me.html">About Me</a>
+      <a class="nav-link" href="./games.html">My Fav Games</a>
+      <a class="nav-link" href="./my_projects.html">My Projects</a>
+      <a class="nav-link" href="./contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="main">
+    <section class="hero">
+      <h2 class="headline">Hey, ich bin Sven — angehender Fachinformatiker.</h2>
+      <p class="subline">
+        Hier findest du einen schnellen Überblick über mich, meine Projekte und Skills.
+      </p>
+    </section>
+
+    <section class="cards">
+      <article class="card">
+        <h3>Skills</h3>
+        <p>Relational Databases/SQL - Intermediate</p>
+        <p>HTML/CSS - Intermediate.</p>
+        <p>JavaScript - Beginner</p>
+        <p>Java - Beginner</p>
+        <p>C# - Beginner</p>
+      </article>
+
+      <article class="card">
+        <h3>Projekte</h3>
+        <p>Apps/Webseiten, die ich aktiv erweitere.</p>
+      </article>
+
+      <article class="card">
+        <h3>Kontakt</h3>
+        <p>Du willst mich kennenlernen? Schreib mir – Kontaktseite ist nur 1 Klick weg.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>© <span id="year"></span> Sven Medin Kolenovic // aka Shadowhunt</span>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

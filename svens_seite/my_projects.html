@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Projects • Sven’s Website</title>
+  <link rel="stylesheet" href="index.css" />
+</head>
+
+<body>
+  <header class="header">
+    <h1 class="logo">My Projects</h1>
+
+    <nav class="nav" aria-label="Hauptnavigation">
+      <a class="nav-link" href="./index.html">Home</a>
+      <a class="nav-link" href="./about_me.html">About Me</a>
+      <a class="nav-link" href="./games.html">My Fav Games</a>
+      <a class="nav-link" href="./contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="main">
+    <section class="hero">
+      <p class="kicker">Portfolio • Code</p>
+      <h2 class="headline">Coming soon 🚧</h2>
+      <p class="subline">
+        Ich baue gerade mein Projekt-Portfolio auf. Hier werden bald meine ersten Projekte erscheinen –
+        mit Beschreibung, Tech-Stack, Screenshots und Links (z. B. GitHub).
+      </p>
+    </section>
+
+    <section class="cards" aria-label="Projekt-Vorschau">
+      <article class="card">
+        <h3>Projekt #1</h3>
+        <p><strong>Status:</strong>Coming soon</p>
+        <p><strong>Tech:</strong>Coming soon</p>
+      </article>
+
+    <article class="card">
+        <h3>Projekt #2</h3>
+        <p><strong>Status:</strong>Coming soon</p>
+        <p><strong>Tech:</strong>Coming soon</p>
+      </article>
+
+      <article class="card">
+        <h3>Projekt #3</h3>
+        <p><strong>Status:</strong>Coming soon</p>
+        <p><strong>Tech:</strong>Coming soon</p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>© <span id="year"></span> Sven Medin Kolenovic // aka Shadowhunt</span>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+
+<!--
+<article class="card">
+  <h3>Retro Arcade Library</h3>
+  <p><strong>Status:</strong> In Arbeit</p>
+  <p><strong>Tech:</strong> HTML • CSS • JS</p>
+  <p>
+    <a class="btn" href="HIER-DEIN-GITHUB-LINK" target="_blank" rel="noopener">GitHub</a>
+    <a class="btn primary" href="HIER-DEMO-LINK" target="_blank" rel="noopener">Live Demo</a>
+  </p>
+</article>
+ -->

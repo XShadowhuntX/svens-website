@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact • Sven’s Website</title>
+  <link rel="stylesheet" href="index.css" />
+</head>
+
+<body>
+  <header class="header">
+    <h1 class="logo">Contact</h1>
+
+    <nav class="nav" aria-label="Hauptnavigation">
+      <a class="nav-link" href="./index.html">Home</a>
+      <a class="nav-link" href="./about_me.html">About Me</a>
+      <a class="nav-link" href="./games.html">My Fav Games</a>
+      <a class="nav-link" href="./my_projects.html">My Projects</a>
+    </nav>
+  </header>
+
+  <main class="main">
+    <section class="hero">
+  <div class="intro-center">
+    <p class="kicker">Kontakt • Links • Bewerbung</p>
+    <h2 class="headline">Schreib mir ✉️</h2>
+    <p class="subline">Am besten per E-Mail.</p>
+  </div>
+
+      <div class="cards" style="margin-top:14px;">
+        <article class="card">
+          <h3>E-Mail</h3>
+          <p id="emailText">svenkolenovic@gmail.com</p>
+          <p id="copyHint" class="subline" style="margin-top:10px; display:none;">
+            Kopiert ✅
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>GitHub</h3>
+          <p>Coming soon</p>
+        </article>
+
+        <article class="card">
+          <h3>Phone</h3>
+          <p>Coming soon</p>
+        </article>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>© <span id="year"></span> Sven Medin Kolenovic // aka Shadowhunt</span>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const copyBtn = document.getElementById("copyEmail");
+    const emailText = document.getElementById("emailText");
+    const hint = document.getElementById("copyHint");
+
+    copyBtn.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(emailText.textContent.trim());
+        hint.style.display = "block";
+        setTimeout(() => hint.style.display = "none", 1200);
+      } catch {
+        alert("Kopieren hat nicht geklappt. Markiere die E-Mail und kopiere sie manuell.");
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,399 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Fav Games</title>
+
+  <!-- Pixel Font (Google Fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="games.css" />
+</head>
+<body>
+  <!-- CRT / Scanline Overlay -->
+  <div class="crt" aria-hidden="true"></div>
+
+  <header class="hero">
+    <div class="marquee">
+      <span>INSERT COIN • INSERT COIN • INSERT COIN • INSERT COIN • INSERT COIN • INSERT COIN • INSERT COIN •</span>
+      <span>INSERT COIN • INSERT COIN • INSERT COIN • INSERT COIN • INSERT COIN • INSERT COIN • INSERT COIN •</span>
+    </div>
+
+    <h1 class="title">RETRO ARCADE LIBRARY</h1>
+    <nav class="nav" aria-label="Hauptnavigation">
+      <a class="nav-link" href="./index.html">Home</a>
+      <a class="nav-link" href="./about_me.html">About Me</a>
+      <a class="nav-link" href="./my_projects.html">My Projects</a>
+      <a class="nav-link" href="./contact.html">Contact</a>
+    </nav>
+
+    <div class="toolbar">
+      <button class="chip" data-filter="all">ALL</button>
+      <button class="chip" data-filter="snes">SNES</button>
+      <button class="chip" data-filter="gb">GB</button>
+      <button class="chip" data-filter="ps1">PS1</button>
+      <button class="chip" data-filter="ps2">PS2</button>
+      <button class="chip" data-filter="ps3">PS3</button>
+      <button class="chip" data-filter="pc">PC</button>
+      <button class="chip" data-filter="top">TOP</button>
+    </div>
+  </header>
+
+  <main class="grid">
+    <!-- SNES -->
+    <section class="card" data-tags="snes">
+      <div class="card-head">
+        <span class="badge snes">SNES</span>
+        <h2>Super Nintendo</h2>
+      </div>
+      <ul class="list">
+        <li>
+          <span class="game">Super Mario World</span>
+          <span class="stars">★★★★★</span>
+        </li>
+        <li>
+          <span class="game">Super Mario World 2: Yoshi´s Island</span>
+          <span class="stars">★★★★</span>
+        </li>
+        <li>
+          <span class="game">Der König der Löwen</span>
+          <span class="stars">★★★★</span>
+        </li>
+        <li>
+          <span class="game">Alladin</span>
+          <span class="stars">★★★</span>
+        </li>
+        <li>
+          <span class="game">Mortal Combat</span>
+          <span class="stars">★★★</span>
+        </li>
+        <li>
+          <span class="game">Asterix & Obelix</span>
+          <span class="stars">★★★★★</span>
+        </li>
+        <li>
+          <span class="game">Jurassic Park</span>
+          <span class="stars">★★★★</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- GB -->
+    <section class="card" data-tags="gb">
+      <div class="card-head">
+        <span class="badge gb">GB/GBC/GBA</span>
+        <h2>Gameboy</h2>
+      </div>
+      <ul class="list">
+        <li><span class="game">Pokémon Rot</span><span class="stars">★★★★★</span></li>
+        <li><span class="game">Pokémon Blau</span><span class="stars">★★★★★</span></li>
+        <li><span class="game">Pokémon Gelb</span><span class="stars">★★★★★</span></li>
+        <li><span class="game">Pokémon Feuerrot</span><span class="stars">★★★★★</span></li>
+        <li><span class="game">Pokémon Silber</span><span class="stars">★★★</span></li>
+        <li><span class="game">Tetris</span><span class="stars">★</span></li>
+        <li><span class="game">Donkey Kong</span><span class="stars">★</span></li>
+      </ul>
+    </section>
+
+    <!-- PS1 -->
+    <section class="card" data-tags="ps1">
+      <div class="card-head">
+        <span class="badge ps1">PS1</span>
+        <h2>PlayStation 1</h2>
+      </div>
+      <ul class="list">
+        <li><span class="game">Syphonfilter 1</span><span class="stars">★★★★★</span></li>
+        <li><span class="game">Syphonfilter 2</span><span class="stars">★★★★★</span></li>
+        <li><span class="game">Tekken 3</span><span class="stars">★</span></li>
+        <li><span class="game">Jade Cocoon: Story of the Tamamayu</span><span class="stars">★★★★★★</span></li>
+        <li><span class="game">Gran Turismo</span><span class="stars">★</span></li>
+        <li><span class="game">Yu-Gi-Oh Forbidden Memories</span><span class="stars">★★★★★★</span></li>
+        <li><span class="game">Beyblade</span><span class="stars">★</span></li>
+        <li><span class="game">Das Dschungelbuch</span><span class="stars">★★★★</span></li>
+        <li><span class="game">Dragonball Final Bout</span><span class="stars">★</span></li>
+        <li><span class="game">Spec Ops Airborne Commando</span><span class="stars">★★★★</span></li>
+        <li><span class="game">Tunguska</span><span class="stars">★</span></li>
+        <li><span class="game">Sheep Dog ´n´ Wolf</span><span class="stars">★★★★★</span></li>
+        <li><span class="game">Radikal Bikers</span><span class="stars">★★★★★</span></li>
+        <li><span class="game">Digimon World</span><span class="stars">★</span></li>
+        <li><span class="game">Grand Theft Auto 2</span><span class="stars">★★★★</span></li>
+        <li><span class="game">Lucky Luke: Western Fever</span><span class="stars">★★★★★</span></li>
+        <li><span class="game">Tomb Raider 3</span><span class="stars">★</span></li>
+        <li><span class="game">Tomb Raider: The Last Revelation</span><span class="stars">★★★★</span></li>
+        <li><span class="game">Resident Evil 1</span><span class="stars">★★★</span></li>
+        <li><span class="game">Resident Evil 2</span><span class="stars">★★★</span></li>
+        <li><span class="game">Resident Evil 3</span><span class="stars">★★★</span></li>
+        <li><span class="game">Harry Potter: Stein der Weisen</span><span class="stars">★★★★</span></li>
+      </ul>
+
+    </section>
+
+    <!-- PS2 -->
+    <section class="card" data-tags="ps2">
+      <div class="card-head">
+        <span class="badge ps2">PS2</span>
+        <h2>PlayStation 2</h2>
+      </div>
+      <ul class="list">
+        <li><span class="game">Baldurs Gate Dark Alliance 2</span><span class="stars">★★★★★</span></li>
+        <li><span class="game">Bloodrayne</span><span class="stars">★★★★★</span></li>
+        <li><span class="game">Champions of Norrath</span><span class="stars">★★★★★</span></li>
+        <li><span class="game">Champions of Norrath: Return to Arms</span><span class="stars">★★★★★</span></li>
+        <li><span class="game">Devil May Cry 1</span><span class="stars">★★★</span></li>
+        <li><span class="game">Devil May Cry 2</span><span class="stars">★★★</span></li>
+        <li><span class="game">Devil May Cry 3</span><span class="stars">★★★</span></li>
+        <li><span class="game">Dragonball Z Budokai 1</span><span class="stars">★★★</span></li>
+        <li><span class="game">Dragonball Z Budokai 2</span><span class="stars">★★★</span></li>
+        <li><span class="game">Dragonball Z Budokai 3</span><span class="stars">★★★</span></li>
+        <li><span class="game">Grand Theft Auto 3</span><span class="stars">★★★</span></li>
+        <li><span class="game">Grand Theft Auto Vice City</span><span class="stars">★★★★★</span></li>
+        <li><span class="game">Grand Theft Auto Vice City Stories</span><span class="stars">★★★</span></li>
+        <li><span class="game">Grand Theft Auto Liberty City Stories</span><span class="stars">★★★</span></li>
+        <li><span class="game">Grand Theft Auto San Andreas</span><span class="stars">★★★★★</span></li>
+        <li><span class="game">Jade Cocoon 2</span><span class="stars">★★★★</span></li>
+        <li><span class="game">Der Herr der Ringe: Die Gefährten</span><span class="stars">★★★★</span></li>
+        <li><span class="game">Der Herr der Ringe: Die Zwei Türme</span><span class="stars">★★★★</span></li>
+        <li><span class="game">Der Herr der Ringe: Die Rückkehr des Königs</span><span class="stars">★★★★</span></li>
+        <li><span class="game">Resident Evil: Code Veronica X</span><span class="stars">★★★★★</span></li>
+        <li><span class="game">Resident Evil 4</span><span class="stars">★★★★</span></li>
+        <li><span class="game">Tomb Raider: The Angel of Darkness</span><span class="stars">★★★★</span></li>
+        <li><span class="game">Yu-Gi-Oh: Duelist of Roses</span><span class="stars">★★★★★</span></li>
+        <li><span class="game">Yu-Gi-Oh: Capsule Monsters Coliseum</span><span class="stars">★★★</span></li>
+      </ul>
+    </section>
+
+    <!-- PS3 -->
+    <section class="card" data-tags="ps3">
+      <div class="card-head">
+        <span class="badge ps3">PS3</span>
+        <h2>PlayStation 3</h2>
+      </div>
+      <ul class="list">
+        <li><span class="game">Assassin´s Creed 1</span><span class="stars">★★★★</span></li>
+        <li><span class="game">Assassin´s Creed 2</span><span class="stars">★★★★</span></li>
+        <li><span class="game">Assassin´s Creed 3</span><span class="stars">★★★★</span></li>
+        <li><span class="game">Assassin´s Creed IV: Black Flag</span><span class="stars">★★★★</span></li>
+        <li><span class="game">Call of Duty Black Ops 1</span><span class="stars">★★★★★</span></li>
+        <li><span class="game">Call of Duty Black Ops 2</span><span class="stars">★★★★★</span></li>
+        <li><span class="game">Dante´s Inferno</span><span class="stars">★★★★</span></li>
+        <li><span class="game">Dark Souls 1</span><span class="stars">★★★★★</span></li>
+        <li><span class="game">Dark Souls 2</span><span class="stars">★★★★★</span></li>
+        <li><span class="game">Demon´s Souls</span><span class="stars">★★★★★</span></li>
+        <li><span class="game">Devil May Cry 4</span><span class="stars">★★★★</span></li>
+        <li><span class="game">Diablo III</span><span class="stars">★★★★★</span></li>
+        <li><span class="game">Dragon Age Origins</span><span class="stars">★★★★★</span></li>
+        <li><span class="game">Demon´s Souls</span><span class="stars">★★★★★</span></li>
+        <li><span class="game">Elder Scrolls IV: Oblivion</span><span class="stars">★★★★★</span></li>
+        <li><span class="game">Elder Scrolls V: Skyrim</span><span class="stars">★★★★★</span></li>
+        <li><span class="game">Grand Theft Auto: IV</span><span class="stars">★★★★</span></li>
+        <li><span class="game">Grand Theft Auto: V</span><span class="stars">★★★★</span></li>
+        <li><span class="game">Medal of Honor</span><span class="stars">★★★★</span></li>
+        <li><span class="game">Naruto Ultimate Ninja Storm 1</span><span class="stars">★★★★</span></li>
+        <li><span class="game">Naruto Ultimate Ninja Storm 2</span><span class="stars">★★★★</span></li>
+        <li><span class="game">Naruto Ultimate Ninja Storm 3</span><span class="stars">★★★★</span></li>
+        <li><span class="game">Plants vs Zombies</span><span class="stars">★★★</span></li>
+        <li><span class="game">Plants vs Zombies: Garden Warfare</span><span class="stars">★★★</span></li>
+        <li><span class="game">Red Dead Redemption</span><span class="stars">★★★</span></li>
+        <li><span class="game">Resident Evil 5</span><span class="stars">★★★★</span></li>
+        <li><span class="game">Resident Evil 6</span><span class="stars">★★★★</span></li>
+        <li><span class="game">Soulcalibur V</span><span class="stars">★★★</span></li>
+        <li><span class="game">Tekken 5</span><span class="stars">★★★</span></li>
+        <li><span class="game">Tekken 6</span><span class="stars">★★★</span></li>
+      </ul>
+    </section>
+
+    <!-- PC -->
+    <section class="card" data-tags="pc">
+      <div class="card-head">
+        <span class="badge pc">PC</span>
+        <h2>PC</h2>
+      </div>
+      <ul class="list">
+        <li><span class="game">Minecraft</span><span class="stars">★★★★</span></li>
+        <li><span class="game">The Witcher 3</span><span class="stars">★★★★</span></li>
+        <li><span class="game">Eldenring</span><span class="stars">★★★★★</span></li>
+        <li><span class="game">7 Days to Die</span><span class="stars">★★★★</span></li>
+        <li><span class="game">9 Kings</span><span class="stars">★★★★</span></li>
+        <li><span class="game">Age of Empires II</span><span class="stars">★★★★★</span></li>
+        <li><span class="game">Among Us</span><span class="stars">★★★</span></li>
+        <li><span class="game">Apogea</span><span class="stars">★★★</span></li>
+        <li><span class="game">ARK</span><span class="stars">★★★★★</span></li>
+        <li><span class="game">Assassin´s Creed Odyssey</span><span class="stars">★★★★</span></li>
+        <li><span class="game">Baldurs Gate III</span><span class="stars">★★★★★</span></li>
+        <li><span class="game">Battle for Wesnoth</span><span class="stars">★★★</span></li>
+        <li><span class="game">Bio Prototyp</span><span class="stars">★★★</span></li>
+        <li><span class="game">Crusader Kings III</span><span class="stars">★★★★★</span></li>
+        <li><span class="game">Cult of the Lamb</span><span class="stars">★★★★</span></li>
+        <li><span class="game">Dark and Darker</span><span class="stars">★★★★★</span></li>
+        <li><span class="game">Darkest Dungeon</span><span class="stars">★★★★</span></li>
+        <li><span class="game">Dead by Daylight</span><span class="stars">★★★★★</span></li>
+        <li><span class="game">Dead Island</span><span class="stars">★★★</span></li>
+        <li><span class="game">Dollmare</span><span class="stars">★★★</span></li>
+        <li><span class="game">Dungeon Village II</span><span class="stars">★★★</span></li>
+        <li><span class="game">EA Sports FIFA 21</span><span class="stars">★★★</span></li>
+        <li><span class="game">Fallout 4</span><span class="stars">★★★★★★★★</span></li>
+        <li><span class="game">Fallout Shelter</span><span class="stars">★★★★</span></li>
+        <li><span class="game">Garten of Banban I</span><span class="stars">★★★</span></li>
+        <li><span class="game">Garten of Banban II</span><span class="stars">★★★</span></li>
+        <li><span class="game">Garten of Banban III</span><span class="stars">★★★</span></li>
+        <li><span class="game">Goat Simulator</span><span class="stars">★★★</span></li>
+        <li><span class="game">Goblin Stone</span><span class="stars">★★★</span></li>
+        <li><span class="game">Graveyard Keeper</span><span class="stars">★★★★</span></li>
+        <li><span class="game">Half Sword</span><span class="stars">★★★★</span></li>
+        <li><span class="game">Hello Neighbour I</span><span class="stars">★★★★</span></li>
+        <li><span class="game">Hello Neighbour II</span><span class="stars">★★★★</span></li>
+        <li><span class="game">Heroes of Might & Magic V</span><span class="stars">★★★★</span></li>
+        <li><span class="game">Heroes of Might & Magic VI</span><span class="stars">★★★★</span></li>
+        <li><span class="game">Heroes of Might & Magic VII</span><span class="stars">★★★★</span></li>
+        <li><span class="game">Hogwarts Legacy</span><span class="stars">★★★★</span></li>
+        <li><span class="game">Kingdom Come: Deliverance I</span><span class="stars">★★★★★</span></li>
+        <li><span class="game">Kingdom Come: Deliverance II</span><span class="stars">★★★★★</span></li>
+        <li><span class="game">Little Misfortune</span><span class="stars">★★★</span></li>
+        <li><span class="game">Little Nightmares I</span><span class="stars">★★★★</span></li>
+        <li><span class="game">Little Nightmares II</span><span class="stars">★★★★</span></li>
+        <li><span class="game">Little Nightmares III</span><span class="stars">★★★★</span></li>
+        <li><span class="game">Manor Lords</span><span class="stars">★★★</span></li>
+        <li><span class="game">Medieval Dynasty</span><span class="stars">★★★★</span></li>
+        <li><span class="game">Mittelerde: Schatten des Krieges</span><span class="stars">★★★★★</span></li>
+        <li><span class="game">My Hero One´s Justice</span><span class="stars">★★★</span></li>
+        <li><span class="game">Path of Exile</span><span class="stars">★★★</span></li>
+        <li><span class="game">Phasmophobia</span><span class="stars">★★★★</span></li>
+        <li><span class="game">Poppy Playtime</span><span class="stars">★★★</span></li>
+        <li><span class="game">Prison Architect</span><span class="stars">★★</span></li>
+        <li><span class="game">Project Playtime</span><span class="stars">★★</span></li>
+        <li><span class="game">Propnight</span><span class="stars">★★</span></li>
+        <li><span class="game">PUBG</span><span class="stars">★★★</span></li>
+        <li><span class="game">Resident Evil VII</span><span class="stars">★★★★</span></li>
+        <li><span class="game">Resident Evil VIII</span><span class="stars">★★★★</span></li>
+        <li><span class="game">Rimworld</span><span class="stars">★★★★</span></li>
+        <li><span class="game">Schedule I</span><span class="stars">★★★</span></li>
+        <li><span class="game">Sid Meier´s Civilisation VI</span><span class="stars">★★★</span></li>
+        <li><span class="game">Silkroad</span><span class="stars">★★★★★★★★★★</span></li>
+        <li><span class="game">Smite</span><span class="stars">★★★★★</span></li>
+        <li><span class="game">Sons of the Forest</span><span class="stars">★★★</span></li>
+        <li><span class="game">Spore</span><span class="stars">★★★</span></li>
+        <li><span class="game">Stranded Deep</span><span class="stars">★★★</span></li>
+        <li><span class="game">Stronghold II</span><span class="stars">★★★★★★★★</span></li>
+        <li><span class="game">Supermarket Simulator</span><span class="stars">★★★</span></li>
+        <li><span class="game">Tekken VII</span><span class="stars">★★★</span></li>
+        <li><span class="game">The Elder Scrolls III: Morrowind</span><span class="stars">★★★★★★★★</span></li>
+        <li><span class="game">The Elder Scrolls IV: Oblivion</span><span class="stars">★★★★★★</span></li>
+        <li><span class="game">The Elder Scrolls V: Skyrim</span><span class="stars">★★★★★★★★</span></li>
+        <li><span class="game">The Isle</span><span class="stars">★★</span></li>
+        <li><span class="game">The Texas Chainsaw Massacre</span><span class="stars">★★★</span></li>
+        <li><span class="game">This War of Mine</span><span class="stars">★★★★</span></li>
+        <li><span class="game">V Rising</span><span class="stars">★★★★★</span></li>
+        <li><span class="game">Video Horror Society</span><span class="stars">★★</span></li>
+        <li><span class="game">Visage</span><span class="stars">★★★</span></li>
+        <li><span class="game">War Rock</span><span class="stars">★★★★</span></li>
+        <li><span class="game">Yu-Gi-Oh: Master Duel</span><span class="stars">★★★★</span></li>
+        <li><span class="game">Yu-Gi-Oh: Duel Links</span><span class="stars">★★★★</span></li>
+      </ul>
+    </section>
+
+    <!-- TOP -->
+    <section class="card top" data-tags="top">
+      <div class="card-head">
+        <span class="badge topb">TOP</span>
+        <h2>Top Picks</h2>
+      </div>
+
+  <ol class="list" id="topList"></ol>
+
+  <div class="score">SCORE: 999999</div>
+</section>
+
+  </main>
+
+  <footer class="footer">
+    <span class="blink">PRESS START</span>
+    <span class="sep">|</span>
+    <span>© <span id="year"></span> Sven Medin Kolenovic // aka Shadowhunt</span>
+  </footer>
+
+  <script>
+  function countStars(text) {
+    return (String(text).match(/★/g) || []).length;
+  }
+
+  function buildTopList(minStars = 5) {
+    const topList = document.getElementById("topList");
+    if (!topList) {
+      console.warn("TOP: Element #topList nicht gefunden.");
+      return;
+    }
+
+    topList.innerHTML = "";
+    const items = [];
+
+    document.querySelectorAll(".card:not(.top)").forEach(card => {
+      const platform =
+        (card.querySelector(".badge")?.textContent || card.dataset.tags || "")
+          .trim()
+          .toUpperCase();
+
+      // Wichtig: nur echte Listeneinträge (keine kaputten Nodes)
+      card.querySelectorAll(".list li").forEach(li => {
+        const game = li.querySelector(".game")?.textContent?.trim();
+        const starsText = li.querySelector(".stars")?.textContent || "";
+
+        // Falls Sterne mal fehlen (durch kaputtes HTML), ignorieren wir den Eintrag
+        const stars = countStars(starsText);
+
+        if (game && stars >= minStars) {
+          items.push({ game, stars, platform });
+        }
+      });
+    });
+
+    items.sort((a, b) => b.stars - a.stars || a.game.localeCompare(b.game, "de"));
+
+    for (const it of items) {
+      const li = document.createElement("li");
+
+      const gameSpan = document.createElement("span");
+      gameSpan.className = "game";
+      gameSpan.textContent = `${it.game} (${it.platform})`;
+
+      const starsSpan = document.createElement("span");
+      starsSpan.className = "stars";
+      starsSpan.textContent = "★".repeat(it.stars);
+
+      li.appendChild(gameSpan);
+      li.appendChild(starsSpan);
+      topList.appendChild(li);
+    }
+  }
+
+  // Filter (dein Code, leicht aufgeräumt)
+  const chips = document.querySelectorAll(".chip");
+  const cards = document.querySelectorAll(".card");
+
+  chips.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const f = btn.dataset.filter;
+
+      chips.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      cards.forEach(card => {
+        const tags = (card.dataset.tags || "").split(" ");
+        const show = (f === "all") || tags.includes(f);
+        card.style.display = show ? "" : "none";
+      });
+    });
+  });
+  
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  document.querySelector('.chip[data-filter="all"]')?.classList.add("active");
+
+  // TOP bauen
+  buildTopList(5);
+</script>
+</body>
+</html>

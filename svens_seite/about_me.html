@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Me • Sven’s Website</title>
+  <link rel="stylesheet" href="index.css" />
+</head>
+
+<body>
+  <header class="header">
+    <h1 class="logo">About Me</h1>
+
+    <nav class="nav" aria-label="Hauptnavigation">
+      <a class="nav-link" href="./index.html">Home</a>
+      <a class="nav-link" href="./games.html">My Fav Games</a>
+      <a class="nav-link" href="./my_projects.html">My Projects</a>
+      <a class="nav-link" href="./contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="main">
+    <section class="hero">
+      <p class="kicker">Profil • Motivation • Lernweg</p>
+      <h2 class="headline">Hey, ich bin Sven und bin <span class="muted"><span id="age"></span> Jahre</span> alt.</h2>
+      <p class="subline">
+        <p> Ich bin angehender Programmierer/Azubi (Fachinformatiker Anwendungsentwicklung) und baue gerade
+            mein Portfolio auf. Ich interessiere mich besonders für Softwareentwicklung, Datenbanken und KI.<br>
+            Geboren und aufgewachsen in Rheinland-Pfalz (Vulkaneifel). Schon früh habe ich mich für IT interessiert –
+            sowohl Software als auch Hardware.
+            Ich habe nach der Schule ein Praktikum in dem einzigen IT-Fachgeschäft in der Umgegung absolviert, was auch sehr erfolgreich war
+            (ich habe damals direkt schon PC-Hardware einbauen können und PC-Neu/Installierungen durchgeführt) und durfte mir sogar als Belohnung
+            für gute Arbeit einen PC zusammenbauen und mitnehmen, jedoch gab es keine offenen Stellen und somit habe ich, nach meinem Schulabschluss
+            viel praktische Arbeitserfahrung in den verschiedenen anderen Bereichen sammeln können:<br>
+            <ul>
+                <li>Event(Rock am Ring-->PersonenKontrolleur, Camping am Nürburging-->Ticketverkauf)</li>
+                <li>Lebensmittelproduktion(Tofutown-->Lager, Produktion, Verpackung: Ich war hier eingesetzt als Mädchen für alles)</li>
+                <li>Stahlindustrie(Schoeller einer der Größten Produzenten von Edelstahlrohren in Europa: Rohrzug und Glühöfen)</li>
+            </ul>
+            Bei Schoeller war ich tariflich (IGM) beschäftigt. Im Zuge einer Metallkrise kam es jedoch zu umfangreichen
+            Entlassungen. Das hat mich motiviert, mich gezielt weiterzuqualifizieren.
+        </p>
+        <p>
+            Ich absolvierte eine Umschulung zur <strong>Fachkraft Metalltechnik (Konstruktionstechnik)</strong>
+            mit <strong>IHK-Abschluss (Gesamtnote 2)</strong> und startete anschließend beim Gerolsteiner Sprudel.<br>
+            Auch hier war es eine gut bezahlte Stelle Nach NGG-Tarif, jedoch bekam ich Rheuma und aufgrund dessen ist körperliche Arbeit langfristig
+            jedoch nur eingeschränkt möglich. Deshalb habe ich
+            meinen beruflichen Fokus konsequent in Richtung IT verlagert.
+            Ich lebe inzwischen in Berlin und befinde mich derzeit in einer zweiten Umschulung zum
+            <strong>Fachinformatiker für Anwendungsentwicklung</strong>.
+        </p>
+        <p>
+            Am meisten interessieren mich bisher Datenbanken und KI.
+        </p>
+        <p>
+            Bei Interesse sende ich Ihnen gern meinen Lebenslauf zu oder beantworte Fragen zu meinem Werdegang.
+        </p>
+      </p>
+      </section>
+
+    <section class="cards">
+      <article class="card">
+        <h3>Was ich gerade lerne</h3>
+        <p>HTML • CSS(mehr Praxis)</p>
+        <p>JavaScript(Basics → mehr Praxis)</p>
+        <p>Datenbanken & SQL (Basics → mehr Praxis), Git/GitHub</p>
+        <p>Java(Basics → mehr Praxis)</p>
+        <p>C#(Basics → mehr Praxis)</p>
+      </article>
+
+      <article class="card">
+        <h3>Stärken</h3>
+        <p>Diszipliniert • Motiviert • Hohe Lernbereitschaft(Quick learner) • Teamfähig • Kritikfähig • Belastbar </p>
+      </article>
+
+      <article class="card">
+        <h3>Ziel</h3>
+        <p>Eine Ausbildung / ein Platz, wo ich an echten Aufgaben mit begeisterung arbeiten, lernen und wachsen kann.</p>
+        <p>Nach Abschluss der Umschulung kann ich meine neuen Kenntnisse direkt in der Praxis anwenden und das Team durch Motivation, Lernbereitschaft und wachsende Fachkompetenz bereichern.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>© <span id="year"></span> Sven Medin Kolenovic // aka Shadowhunt</span>
+  </footer>
+
+  <script>
+    // 17/02/1997  (TT/MM/JJJJ)
+    const birthday = new Date(1997, 1, 17); // Februar = 1
+
+    function calculateAge(birthDate) {
+    const today = new Date();
+    let age = today.getFullYear() - birthDate.getFullYear();
+
+    const hasHadBirthdayThisYear =
+      (today.getMonth() > birthDate.getMonth()) ||
+      (today.getMonth() === birthDate.getMonth() && today.getDate() >= birthDate.getDate());
+
+    if (!hasHadBirthdayThisYear) age--;
+    return age;
+  }
+    document.getElementById("age").textContent = calculateAge(birthday);
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
