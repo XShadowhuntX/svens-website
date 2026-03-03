@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Fav Movies & Serien</title>
+
+  <!-- Pixel Font (Google Fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="movies.css" />
+</head>
+<body>
+  <!-- CRT / Scanline Overlay -->
+  <div class="crt" aria-hidden="true"></div>
+
+  <header class="hero">
+    <div class="marquee">
+      <span>INSERT COIN • INSERT COIN • INSERT COIN • INSERT COIN • INSERT COIN • INSERT COIN • INSERT COIN •</span>
+      <span>INSERT COIN • INSERT COIN • INSERT COIN • INSERT COIN • INSERT COIN • INSERT COIN • INSERT COIN •</span>
+    </div>
+
+    <h1 class="title">Videothek</h1>
+    <nav class="nav" aria-label="Hauptnavigation">
+      <a class="nav-link" href="./index.html">Home</a>
+      <a class="nav-link" href="./about_me.html">About Me</a>
+      <a class="nav-link" href="./my_projects.html">My Projects</a>
+      <a class="nav-link" href="./contact.html">Contact</a>
+    </nav>
+
+    <div class="toolbar">
+      <button class="chip" data-filter="all">ALL</button>
+      <button class="chip" data-filter="abenteuer">Abenteuer</button>
+      <button class="chip" data-filter="action">Action</button>
+      <button class="chip" data-filter="anime">Anime</button>
+      <button class="chip" data-filter="drama">Drama</button>
+      <button class="chip" data-filter="fantasy">Fantasy</button>
+      <button class="chip" data-filter="horror">Horror</button>
+      <button class="chip" data-filter="krimi">Krimi</button>
+      <button class="chip" data-filter="sciencefiction">Science Fiction</button>
+      <button class="chip" data-filter="thriller">Thriller</button>
+      <button class="chip" data-filter="top">TOP</button>
+    </div>
+  </header>
+
+  <main class="grid">
+
+    <!-- ALL (dedupliziert) -->
+    <section class="card all" data-tags="all">
+      <div class="card-head">
+        <span class="badge">ALL</span>
+        <h2>Alle Filme</h2>
+      </div>
+      <ul class="list" id="allList"></ul>
+    </section>
+    
+    <!-- Abenteuer -->
+    <section class="card" data-tags="abenteuer">
+      <div class="card-head">
+        <span class="badge abenteuer">Abenteuer</span>
+        <h2>Filme & Serien mit Genre Abenteuer:</h2>
+      </div>
+      <ul class="list" data-list-for="abenteuer"></ul>
+    </section>
+
+    <!-- Action -->
+    <section class="card" data-tags="action">
+      <div class="card-head">
+        <span class="badge action">Action</span>
+        <h2>Filme & Serien mit Genre Action:</h2>
+      </div>
+      <ul class="list" data-list-for="action"></ul>
+    </section>
+
+    <!-- Anime -->
+    <section class="card" data-tags="anime">
+      <div class="card-head">
+        <span class="badge anime">Anime</span>
+        <h2>Filme & Serien mit Genre Anime:</h2>
+      </div>
+      <ul class="list" data-list-for="anime"></ul>
+    </section>
+
+    <!-- Drama -->
+    <section class="card" data-tags="drama">
+      <div class="card-head">
+        <span class="badge drama">Drama</span>
+        <h2>Filme & Serien mit Genre Drama:</h2>
+      </div>
+      <ul class="list" data-list-for="drama"></ul>
+    </section>
+
+    <!-- Fantasy -->
+    <section class="card" data-tags="fantasy">
+      <div class="card-head">
+        <span class="badge fantasy">Fantasy</span>
+        <h2>Filme & Serien mit Genre Fantasy:</h2>
+      </div>
+      <ul class="list" data-list-for="fantasy"></ul>
+    </section>
+
+    <!-- Horror -->
+    <section class="card" data-tags="horror">
+      <div class="card-head">
+        <span class="badge horror">Horror</span>
+        <h2>Filme & Serien mit Genre Horror:</h2>
+      </div>
+      <ul class="list" data-list-for="horror"></ul>
+    </section>
+
+    <!-- Krimi -->
+    <section class="card" data-tags="krimi">
+      <div class="card-head">
+        <span class="badge krimi">Krimi</span>
+        <h2>Filme & Serien mit Genre Krimi:</h2>
+      </div>
+      <ul class="list" data-list-for="krimi"></ul>
+    </section>
+
+    <!-- Science Fiction -->
+    <section class="card" data-tags="sciencefiction">
+      <div class="card-head">
+        <span class="badge sciencefiction">Science Fiction</span>
+        <h2>Filme & Serien mit Genre Science Fiction:</h2>
+      </div>
+      <ul class="list" data-list-for="sciencefiction"></ul>
+    </section>
+
+    <!-- Thriller -->
+    <section class="card" data-tags="thriller">
+      <div class="card-head">
+        <span class="badge thriller">Thriller</span>
+        <h2>Filme & Serien mit Genre Thriller:</h2>
+      </div>
+      <ul class="list" data-list-for="thriller"></ul>
+    </section>
+
+    <!-- TOP -->
+    <section class="card top" data-tags="top">
+      <div class="card-head">
+        <span class="badge topb">TOP</span>
+        <h2>Top Picks</h2>
+      </div>
+
+  <ol class="list" id="topList"></ol>
+
+  <div class="score">SCORE: 999999</div>
+</section>
+
+<!-- Filme -->
+<ul id="movieData" hidden>
+  
+  <li class="movie" data-genres="abenteuer action fantasy">
+    <span class="game">Fluch der Karibik 1: Der Fluch der Black Pearl (2003)</span>
+    <span class="stars">★★★★★</span>
+  </li>
+
+  <li class="movie" data-genres="abenteuer action fantasy">
+    <span class="game">Fluch der Karibik 2: Dead Man´s Chest (2006)</span>
+    <span class="stars">★★★★★</span>
+  </li>
+
+  <li class="movie" data-genres="abenteuer action fantasy">
+    <span class="game">Fluch der Karibik 3: Am Ende der Welt (2007)</span>
+    <span class="stars">★★★★★</span>
+  </li>
+
+  <li class="movie" data-genres="abenteuer action fantasy">
+    <span class="game">Fluch der Karibik 4: Fremde Gezeiten (2011)</span>
+    <span class="stars">★★★★★</span>
+  </li>
+
+  <li class="movie" data-genres="abenteuer action fantasy">
+    <span class="game">Fluch der Karibik 5: Salazar´s Rache (2017)</span>
+    <span class="stars">★★★★★</span>
+  </li>
+
+  <li class="movie" data-genres="fantasy abenteuer">
+    <span class="game">Der Herr der Ringe 1: Die Gefährten (2001)</span>
+    <span class="stars">★★★★★</span>
+  </li>
+
+  <li class="movie" data-genres="fantasy abenteuer">
+    <span class="game">Der Herr der Ringe 2: Die zwei Türme (2002)</span>
+    <span class="stars">★★★★★</span>
+  </li>
+
+  <li class="movie" data-genres="fantasy abenteuer">
+    <span class="game">Der Herr der Ringe 3: Die Rückkehr des Königs (2003)</span>
+    <span class="stars">★★★★★</span>
+  </li>
+
+  <li class="movie" data-genres="fantasy abenteuer">
+    <span class="game">Der Hobbit 1: Eine unerwartete Reise (2012)</span>
+    <span class="stars">★★★★★</span>
+  </li>
+
+  <li class="movie" data-genres="fantasy abenteuer">
+    <span class="game">Der Hobbit 2: Smaugs Einöde (2013)</span>
+    <span class="stars">★★★★★</span>
+  </li>
+
+  <li class="movie" data-genres="fantasy abenteuer">
+    <span class="game">Der Hobbit 3: Die Schlacht der Fünf Heere(2014)</span>
+    <span class="stars">★★★★★</span>
+  </li>
+
+  <li class="movie" data-genres="fantasy abenteuer">
+    <span class="game">Der Herr der Ringe: Die Ringe der Macht(2022)</span>
+    <span class="stars">★★★★★</span>
+  </li>
+
+  <li class="movie" data-genres="fantasy abenteuer">
+    <span class="game">Der Herr der Ringe 4: Die Schlacht der Rohirrim(2024)</span>
+    <span class="stars">★★★★★</span>
+  </li>
+
+  <li class="movie" data-genres="thriller horror">
+    <span class="game">The Texas Chainsaw Massacre</span>
+    <span class="stars">★★★</span>
+  </li>
+</ul>
+
+  </main>
+
+  <footer class="footer">
+    <span class="blink">PRESS START</span>
+    <span class="sep">|</span>
+    <span>© <span id="year"></span> Sven Medin Kolenovic // aka Shadowhunt</span>
+  </footer>
+
+  <script>
+  function countStars(text) {
+    return (String(text).match(/★/g) || []).length;
+  }
+
+  // Titel normalisieren => für Duplikat-Erkennung in ALL / TOP
+  function normalizeTitle(t) {
+    return String(t)
+      .toLowerCase()
+      .replace(/\(\d{4}\)/g, "")     // (2003) raus
+      .replace(/[^a-z0-9äöüß]+/g, "")// Sonderzeichen/Spaces raus
+      .trim();
+  }
+
+  function getMoviesFromData() {
+    return Array.from(document.querySelectorAll("#movieData .movie")).map(li => {
+      const title = li.querySelector(".game")?.textContent?.trim() || "";
+      const starsText = li.querySelector(".stars")?.textContent || "";
+      const stars = countStars(starsText);
+      const genres = (li.dataset.genres || "").split(" ").filter(Boolean);
+      return { title, stars, genres };
+    }).filter(m => m.title);
+  }
+
+  function renderMovieLi(movie) {
+    const li = document.createElement("li");
+
+    const titleSpan = document.createElement("span");
+    titleSpan.className = "game";
+    titleSpan.textContent = movie.title;
+
+    const starsSpan = document.createElement("span");
+    starsSpan.className = "stars";
+    starsSpan.textContent = "★".repeat(movie.stars);
+
+    li.appendChild(titleSpan);
+    li.appendChild(starsSpan);
+    return li;
+  }
+
+  function buildGenreCards(movies) {
+    // Alle Genre-Listen leeren
+    document.querySelectorAll('[data-list-for]').forEach(ul => ul.innerHTML = "");
+
+    // Pro Genre-Card befüllen
+    document.querySelectorAll(".card:not(.top):not(.all)").forEach(card => {
+      const genre = (card.dataset.tags || "").trim();
+      const ul = card.querySelector(`[data-list-for="${genre}"]`);
+      if (!ul) return;
+
+      const matches = movies.filter(m => m.genres.includes(genre));
+      matches
+        .sort((a, b) => b.stars - a.stars || a.title.localeCompare(b.title, "de"))
+        .forEach(m => ul.appendChild(renderMovieLi(m)));
+    });
+  }
+
+  function buildAllList(movies) {
+    const allList = document.getElementById("allList");
+    if (!allList) return;
+
+    allList.innerHTML = "";
+
+    // dedupe nach normalisiertem Titel
+    const map = new Map();
+    for (const m of movies) {
+      const key = normalizeTitle(m.title);
+      if (!map.has(key)) map.set(key, m);
+    }
+
+    const unique = Array.from(map.values())
+      .sort((a, b) => b.stars - a.stars || a.title.localeCompare(b.title, "de"));
+
+    unique.forEach(m => allList.appendChild(renderMovieLi(m)));
+  }
+
+  function buildTopList(movies, minStars = 5) {
+    const topList = document.getElementById("topList");
+    if (!topList) return;
+
+    topList.innerHTML = "";
+
+    // dedupe auch im TOP
+    const map = new Map();
+    for (const m of movies) {
+      if (m.stars < minStars) continue;
+      const key = normalizeTitle(m.title);
+      if (!map.has(key)) map.set(key, m);
+    }
+
+    const top = Array.from(map.values())
+      .sort((a, b) => b.stars - a.stars || a.title.localeCompare(b.title, "de"));
+
+    top.forEach(m => topList.appendChild(renderMovieLi(m)));
+  }
+
+  // ----- INIT -----
+  const movies = getMoviesFromData();
+
+  // ----- ACCENTS (ohne inline styles) -----
+  const accentMap = {
+    all: "var(--c-all)",
+    abenteuer: "var(--c-abenteuer)",
+    action: "var(--c-action)",
+    anime: "var(--c-anime)",
+    drama: "var(--c-drama)",
+    fantasy: "var(--c-fantasy)",
+    horror: "var(--c-horror)",
+    krimi: "var(--c-krimi)",
+    sciencefiction: "var(--c-sciencefiction)",
+    thriller: "var(--c-thriller)",
+    top: "var(--yellow)" // oder eigenes --c-top wenn du willst
+  };
+
+  // Chips
+  document.querySelectorAll(".chip").forEach(chip => {
+    const f = chip.dataset.filter;
+    chip.style.setProperty("--accent", accentMap[f] || "var(--cyan)");
+  });
+
+  // Cards (+ Badge in der Card)
+  document.querySelectorAll(".card").forEach(card => {
+    const tag = (card.dataset.tags || "").trim();
+    card.style.setProperty("--accent", accentMap[tag] || "var(--cyan)");
+
+    const badge = card.querySelector(".badge");
+    if (badge) badge.style.setProperty("--accent", accentMap[tag] || "var(--cyan)");
+  });
+
+  buildGenreCards(movies);
+  buildAllList(movies);
+  buildTopList(movies, 5);
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // ----- FILTER -----
+  const chips = document.querySelectorAll(".chip");
+  const cards = document.querySelectorAll(".card");
+
+  function showFilter(f) {
+  cards.forEach(card => {
+    const tag = (card.dataset.tags || "").trim();
+
+    if (f === "all") {
+      // alles außer: nichts verstecken
+      // (zeigt ALL-Card + alle Genres + TOP)
+      card.style.display = "";
+      return;
+    }
+
+    if (f === "top") {
+      card.style.display = card.classList.contains("top") ? "" : "none";
+      return;
+    }
+
+    // Genre: nur passende Card
+    card.style.display = (tag === f) ? "" : "none";
+  });
+}
+
+  chips.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const f = btn.dataset.filter;
+
+      chips.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      showFilter(f);
+    });
+  });
+
+  // Default: ALL aktiv + Anzeige
+  document.querySelector('.chip[data-filter="all"]')?.classList.add("active");
+  showFilter("all");
+  </script>
+</body>
+</html>
