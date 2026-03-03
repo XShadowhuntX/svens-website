@@ -319,3 +319,31 @@ body{
   0%, 49% { opacity: 1; }
   50%, 100% { opacity: 0.25; }
 }
+
+/* ===== Click-to-Tiles (nur wenn aktiv) ===== */
+
+/* Card wird beim Klick breiter */
+.card.expanded{
+  flex: 0 0 min(1100px, 92vw);
+}
+
+/* Liste wird zu Tiles/Grid */
+.list.tiles{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 12px;
+}
+
+/* Tile-Layout */
+.list.tiles li{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  min-height: 92px;
+}
+
+/* Sterne rechts */
+.list.tiles li .stars{
+  align-self: flex-end;
+}
