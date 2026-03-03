@@ -372,7 +372,29 @@ body{
   }
 }
 
-/* ALL Card Grundzustand optional */
+/* ALL Card (Border + breiter für Tiles) */
 .card.all{
   border-color: color-mix(in srgb, var(--c-all) 18%, transparent);
+  flex: 0 0 min(1100px, 92vw);
+}
+
+/* Liste als Grid => mehrere Filme pro Reihe */
+.list.tiles{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 12px;
+}
+
+/* Ein Film = Tile */
+.list.tiles li{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  min-height: 92px;
+}
+
+/* Sterne nach rechts oben/unten (optional nice) */
+.list.tiles li .stars{
+  align-self: flex-end;
 }
