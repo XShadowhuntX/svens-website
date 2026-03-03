@@ -337,12 +337,9 @@
           .trim()
           .toUpperCase();
 
-      // Wichtig: nur echte Listeneinträge (keine kaputten Nodes)
       card.querySelectorAll(".list li").forEach(li => {
         const game = li.querySelector(".game")?.textContent?.trim();
         const starsText = li.querySelector(".stars")?.textContent || "";
-
-        // Falls Sterne mal fehlen (durch kaputtes HTML), ignorieren wir den Eintrag
         const stars = countStars(starsText);
 
         if (game && stars >= minStars) {
@@ -370,9 +367,66 @@
     }
   }
 
-  // Filter (dein Code, leicht aufgeräumt)
+  // -------------------------
+  // INIT
+  // -------------------------
   const chips = document.querySelectorAll(".chip");
   const cards = document.querySelectorAll(".card");
+
+  // ===== Click-to-Tiles Toggle (PS1/PS2/PS3/PC) =====
+  const tilePlatforms = new Set(["ps1", "ps2", "ps3", "pc"]);
+
+  function collapseExpanded() {
+    document.querySelectorAll(".card.expanded").forEach(c => {
+      c.classList.remove("expanded");
+      c.querySelector(".list")?.classList.remove("tiles");
+    });
+  }
+
+  // Click-Listener NUR einmal registrieren
+  cards.forEach(card => {
+    const tag = (card.dataset.tags || "").trim();
+    if (!tilePlatforms.has(tag)) return;
+
+    card.style.cursor = "pointer";
+
+    card.addEventListener("click", (e) => {
+      if (e.target.closest("a, button")) return;
+
+      const ul = card.querySelector(".list");
+      if (!ul) return;
+
+      const willExpand = !card.classList.contains("expanded");
+
+      // immer nur eine Karte geöffnet
+      collapseExpanded();
+
+      if (willExpand) {
+        card.classList.add("expanded");
+        ul.classList.add("tiles");
+
+        card.scrollIntoView({
+          behavior: "smooth",
+          inline: "start",
+          block: "nearest"
+        });
+      }
+    });
+  });
+
+  // -------------------------
+  // FILTER
+  // -------------------------
+  function showFilter(f) {
+    // beim Filtern: Tiles schließen
+    collapseExpanded();
+
+    cards.forEach(card => {
+      const tags = (card.dataset.tags || "").split(" ");
+      const show = (f === "all") || tags.includes(f);
+      card.style.display = show ? "" : "none";
+    });
+  }
 
   chips.forEach(btn => {
     btn.addEventListener("click", () => {
@@ -381,78 +435,17 @@
       chips.forEach(b => b.classList.remove("active"));
       btn.classList.add("active");
 
-      cards.forEach(card => {
-        const tags = (card.dataset.tags || "").split(" ");
-        const show = (f === "all") || tags.includes(f);
-        card.style.display = show ? "" : "none";
-      });
+      showFilter(f);
     });
   });
 
-   chips.forEach(btn => {
-    btn.addEventListener("click", () => {
-      const f = btn.dataset.filter;
-
-      chips.forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
-
-      // ===== Click-to-Tiles Toggle (PS1/PS2/PS3/PC) =====
-const tilePlatforms = new Set(["ps1", "ps2", "ps3", "pc"]);
-
-function collapseExpanded() {
-  document.querySelectorAll(".card.expanded").forEach(c => {
-    c.classList.remove("expanded");
-    c.querySelector(".list")?.classList.remove("tiles");
-  });
-}
-
-cards.forEach(card => {
-  const tag = (card.dataset.tags || "").trim();
-  if (!tilePlatforms.has(tag)) return;
-
-  card.style.cursor = "pointer";
-
-  card.addEventListener("click", (e) => {
-    // Nicht togglen, wenn man z.B. Text markiert oder auf irgendwas anderes klickt
-    if (e.target.closest("a, button")) return;
-
-    const ul = card.querySelector(".list");
-    if (!ul) return;
-
-    const willExpand = !card.classList.contains("expanded");
-
-    // nur eine Karte gleichzeitig expanded
-    collapseExpanded();
-
-    if (willExpand) {
-      card.classList.add("expanded");
-      ul.classList.add("tiles");
-      card.scrollIntoView({ behavior: "smooth", inline: "start", block: "nearest" });
-    }
-  });
-});
-
-// Wenn du filterst, klappen wir die Tiles-Ansicht wieder zu
-chips.forEach(btn => {
-  btn.addEventListener("click", () => collapseExpanded());
-});
-
-      cards.forEach(card => {
-        const tags = (card.dataset.tags || "").split(" ");
-        const show = (f === "all") || tags.includes(f);
-        card.style.display = show ? "" : "none";
-      });
-    });
-  });   
-  
+  // Jahr + Defaults
   document.getElementById("year").textContent = new Date().getFullYear();
-
   document.querySelector('.chip[data-filter="all"]')?.classList.add("active");
+  showFilter("all");
 
   // TOP bauen
   buildTopList(5);
-</script>
+    </script>
 </body>
 </html>
-
-
