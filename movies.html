@@ -375,19 +375,19 @@
   cards.forEach(card => {
     const tag = (card.dataset.tags || "").trim();
 
+    // ALL: nur ALL-Card anzeigen
     if (f === "all") {
-      // alles außer: nichts verstecken
-      // (zeigt ALL-Card + alle Genres + TOP)
-      card.style.display = "";
+      card.style.display = (tag === "all") ? "" : "none";
       return;
     }
 
+    // TOP: nur TOP-Card
     if (f === "top") {
       card.style.display = card.classList.contains("top") ? "" : "none";
       return;
     }
 
-    // Genre: nur passende Card
+    // Genre: nur passende Genre-Card anzeigen
     card.style.display = (tag === f) ? "" : "none";
   });
 }
