@@ -367,86 +367,69 @@
     }
   }
 
-  // -------------------------
-  // INIT
-  // -------------------------
-  const chips = document.querySelectorAll(".chip");
-  const cards = document.querySelectorAll(".card");
+ // -------------------------
+// INIT
+// -------------------------
+const chips = document.querySelectorAll(".chip");
+const cards = document.querySelectorAll(".card");
 
-  // ===== Click-to-Tiles Toggle (PS1/PS2/PS3/PC) =====
-  const tilePlatforms = new Set(["ps1", "ps2", "ps3", "pc", "top"]);
+// Chips, die automatisch "breit + tiles" bekommen sollen
+const tileOnChip = new Set(["ps1", "ps2", "ps3", "pc", "top"]);
 
-  function collapseExpanded() {
-    document.querySelectorAll(".card.expanded").forEach(c => {
-      c.classList.remove("expanded");
-      c.querySelector(".list")?.classList.remove("tiles");
-    });
-  }
+function collapseExpanded() {
+  document.querySelectorAll(".card.expanded").forEach(c => c.classList.remove("expanded"));
+  document.querySelectorAll(".list.tiles").forEach(ul => ul.classList.remove("tiles"));
+}
 
-  // Click-Listener NUR einmal registrieren
+function expandCard(tag) {
+  const card = document.querySelector(`.card[data-tags="${tag}"]`);
+  if (!card) return;
+
+  // TOP hat bei dir <ol class="list" id="topList"> -> ist auch ".list"
+  const list = card.querySelector(".list");
+  if (!list) return;
+
+  card.classList.add("expanded");
+  list.classList.add("tiles");
+
+  card.scrollIntoView({ behavior: "smooth", inline: "start", block: "nearest" });
+}
+
+function showFilter(f) {
+  collapseExpanded();
+
   cards.forEach(card => {
     const tag = (card.dataset.tags || "").trim();
-    if (!tilePlatforms.has(tag)) return;
 
-    card.style.cursor = "pointer";
+    if (f === "all") {
+      // ALL = alles sichtbar, KEIN tiles/breit
+      card.style.display = "";
+      return;
+    }
 
-    card.addEventListener("click", (e) => {
-      if (e.target.closest("a, button")) return;
-
-      const ul = card.querySelector(".list");
-      if (!ul) return;
-
-      const willExpand = !card.classList.contains("expanded");
-
-      // immer nur eine Karte geöffnet
-      collapseExpanded();
-
-      if (willExpand) {
-        card.classList.add("expanded");
-        ul.classList.add("tiles");
-
-        card.scrollIntoView({
-          behavior: "smooth",
-          inline: "start",
-          block: "nearest"
-        });
-      }
-    });
+    // sonst nur passende Card zeigen
+    card.style.display = (tag === f) ? "" : "none";
   });
 
-  // -------------------------
-  // FILTER
-  // -------------------------
-  function showFilter(f) {
-    // beim Filtern: Tiles schließen
-    collapseExpanded();
+  if (tileOnChip.has(f)) expandCard(f);
+}
 
-    cards.forEach(card => {
-      const tags = (card.dataset.tags || "").split(" ");
-      const show = (f === "all") || tags.includes(f);
-      card.style.display = show ? "" : "none";
-    });
-  }
+chips.forEach(btn => {
+  btn.addEventListener("click", () => {
+    const f = btn.dataset.filter;
 
-  chips.forEach(btn => {
-    btn.addEventListener("click", () => {
-      const f = btn.dataset.filter;
+    chips.forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
 
-      chips.forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
-
-      showFilter(f);
-    });
+    showFilter(f);
   });
+});
 
-  // Jahr + Defaults
-  document.getElementById("year").textContent = new Date().getFullYear();
-  document.querySelector('.chip[data-filter="all"]')?.classList.add("active");
-  showFilter("all");
-
-  // TOP bauen
-  buildTopList(5);
-    </script>
+// Default: ALL aktiv
+document.querySelector('.chip[data-filter="all"]')?.classList.add("active");
+showFilter("all");
+document.getElementById("year").textContent = new Date().getFullYear();
+buildTopList(5);
+</script>
 </body>
 </html>
-
